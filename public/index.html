@@ -236,50 +236,50 @@
           </p>
         </div>
         <div class="col s12 l5 offset-l2">
-          <form action="" id="contact">
+          <form action="" id="contact-form">
             <div class="input-field">
               <i class="material-icons prefix">person</i>
-              <input type="text" id="name" />
+              <input type="text" name="name" id="name" minlength="2" required autocomplete="name" />
               <label for="name">Your Full Name</label>
             </div>
             <div class="input-field">
               <i class="material-icons prefix">email</i>
-              <input type="email" id="email" />
+              <input type="email" name="email" id="email" autocomplete="email" required />
               <label for="email">Your Email</label>
             </div>
             <div class="input-field">
               <i class="material-icons prefix">message</i>
-              <textarea id="message" class="materialize-textarea"></textarea>
+              <textarea id="message" name="message" required minlength="15" class="materialize-textarea"></textarea>
               <label for="message">Your Message</label>
             </div>
             <!-- date picker -->
             <div class="input-field">
-              <input type="appointment" class="datepicker" id="date" />
+              <input type="appointment" name="date" class="datepicker" id="date" required />
               <label for="date">Choose a date (appointment)</label>
             </div>
             <div class="input-field">
               <p>Service required...</p>
               <p>
                 <label>
-                  <input type="checkbox" id="web" value="web" />
+                  <input type="checkbox" id="web" name="web" />
                   <span>Web Development</span>
                 </label>
               </p>
               <p>
                 <label>
-                  <input type="checkbox" id="tutor" value="tutor" />
+                  <input type="checkbox" id="tutor" name="tutor" />
                   <span>Web Development Tutor</span>
                 </label>
               </p>
               <p>
                 <label>
-                  <input type="checkbox" id="article" value="article" />
+                  <input type="checkbox" id="article" valuname="article" />
                   <span>Article Writing</span>
                 </label>
               </p>
               <p>
                 <label>
-                  <input type="checkbox" id="mentoring" value="mentoring" />
+                  <input type="checkbox" id="mentoring" name="mentoring" />
                   <span>Mentoring</span>
                 </label>
               </p>
@@ -345,14 +345,14 @@
         </div>
       </div>
     </footer>
-    <script src="/app.js"></script>
     <!-- firebase -->
+    <script src="/__/firebase/8.0.0/firebase-app.js"></script>
+    <script src="/__/firebase/8.0.0/firebase-analytics.js"></script>
+    <script src="/__/firebase/8.0.0/firebase-firestore.js"></script>
+    <script src="/__/firebase/init.js"></script>
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.21.1/firebase-app.js"></script>
-    <!-- firebase script ends here -->
+    <script src="/app.js"></script>
 
-    <script src="./main.js"></script>
     <!-- Compiled and minified JavaScript -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
