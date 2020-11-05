@@ -6,11 +6,13 @@ if ('serviceWorker' in navigator) {
 }
 
 const contactForm = document.querySelector('#contact-form');
+const submitButton = document.querySelector('#submit-button');
 
 contactForm.addEventListener('submit', async (e) => {
   try {
     e.preventDefault();
     const submission = Object.fromEntries(new FormData(contactForm));
+    submitButton.disabled = true;
 
     await firebase.firestore().collection('submissions').add(submission);
     alert('Your appointment has been successfully booked!\nI will reach out to you shortly');
@@ -19,5 +21,6 @@ contactForm.addEventListener('submit', async (e) => {
     alert(`An error occurred\n ${error}`);
   } finally {
     contactForm.reset();
+    submitButton.disabled = false;
   }
 });
