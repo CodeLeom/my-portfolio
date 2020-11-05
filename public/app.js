@@ -15,8 +15,12 @@ contactForm.addEventListener('submit', async (e) => {
     submitButton.disabled = true;
 
     await firebase.firestore().collection('submissions').add(submission);
-    alert('Your appointment has been successfully booked!\nI will reach out to you shortly');
-  } catch(error) {
+    await fetch(
+      'https://script.google.com/macros/s/AKfycbx8YHlhcZZwxlqfZ-wXqdDThBh3d9mPmzF4YbhSmUUVhbgfqfMk/exec',
+      { method: 'POST', body: submission }
+    );
+    alert('Thanks for contacting.\nI will reach out to you shortly');
+  } catch (error) {
     console.log(error);
     alert(`An error occurred\n ${error}`);
   } finally {
