@@ -17,7 +17,7 @@ contactForm.addEventListener('submit', async (e) => {
     await firebase.firestore().collection('submissions').add(submission);
     await fetch(
       'https://script.google.com/macros/s/AKfycbx8YHlhcZZwxlqfZ-wXqdDThBh3d9mPmzF4YbhSmUUVhbgfqfMk/exec',
-      { method: 'POST', body: submission }
+      { method: 'POST', body: new FormData(contactForm)}
     );
     alert('Thanks for contacting.\nI will reach out to you shortly');
   } catch (error) {
