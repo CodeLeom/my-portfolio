@@ -12,6 +12,7 @@ contactForm.addEventListener('submit', async (e) => {
   try {
     e.preventDefault();
     const submission = Object.fromEntries(new FormData(contactForm));
+    submission.timestamp = firebase.firestore.FieldValue.serverTimestamp();
     submitButton.disabled = true;
 
     await firebase.firestore().collection('submissions').add(submission);
